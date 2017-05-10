@@ -1,0 +1,30 @@
+{
+  "name": "youmuu",
+  "version": "1.0.0",
+  "description": "Share your music with friends",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eldow/youmuu.git"
+  },
+  "keywords": [
+    "music",
+    "share",
+    "youtube",
+    "playlist",
+    "friends"
+  ],
+  "author": "Fran�cois DECAN & Marine RIPON",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eldow/youmuu/issues"
+  },
+  "homepage": "https://github.com/Eldow/youmuu#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
