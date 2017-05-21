@@ -1,0 +1,34 @@
+<div class="black-container">
+  <div class="col-md-12 pointer-mouse collapsing-box" data-toggle="collapse" attr.data-target="#{{playlist._id}}" aria-expanded="false" aria-controls="playlist._id">
+    <h3 class="text-secondary">{{playlist.name}}</h3>
+  </div>
+  <div class="collapse" attr.id="{{playlist._id}}">
+
+  <youtube-player *ngIf="playlist.videos.length > 0"
+        [videoId]="playlist.videos[0].videoId"
+        (ready)="savePlayer($event)"
+        (change)="onStateChange($event)">
+  </youtube-player>
+
+    <div class="list-group"
+    *ngFor="let video of playlist.videos; let i = index">
+      <a (click)="playVideo(i)" class="list-group-item  list-group-item-action pointer-mouse" [class.active]="currentIndex == i">
+        <div class="row">
+          <div class="col-md-12">
+            <p>{{ video.title }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      <div class="col-md-12">
+        Updated on : <cite title="Source Title">{{playlist.updated | date:'medium'}}</cite>
+      </div>
+      <div class="col-md-12">
+        Created by : <cite title="Source Title">{{ playlist.owner.name }}</cite>
+      </div>
+    </footer>
+  </div>
+
+</div>

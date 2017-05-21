@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  background: linear-gradient(
+                     rgba(20,20,20, .5),
+                     rgba(20,20,20, .5)),
+                     url('./assets/relax.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.jumbotron-title {
+  height: 300px;
+  text-align: center;
+}
+@media only screen and (min-width: 1176px){
+  .jumbotron-title {
+    height: 250px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .jumbotron-title {
+    height: 200px;
+  }
+}
+
+.text-secondary {
+  color: #fff;
+}
+
+.playlist-grab-area {
+  background-color: red;
+}
+
+.video-grab-area {
+  background-color: blue;
+}
+
+
+.btn-primary:hover{
+  background-color: #fff;
+  color: #000;
+}

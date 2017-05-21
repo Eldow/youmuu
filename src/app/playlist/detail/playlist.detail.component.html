@@ -1,0 +1,92 @@
+<div dnd-droppable (onDropSuccess)="onVideoDropped($event)"
+[dropZones]="['add-dropZone']">
+  <div class="black-container">
+    <div class="col-md-12 pointer-mouse collapsing-box" data-toggle="collapse" attr.data-target="#{{playlist._id}}" aria-expanded="false" aria-controls="playlist._id">
+      <h3 class="text-secondary">{{playlist.name}}</h3>
+    </div>
+
+    <div class="collapse" attr.id="{{playlist._id}}">
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#playlist" aria-expanded="true" [class.active]="!share" (click)="share=false">Playlist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#share" aria-expanded="false" [class.active]="share" (click)="share=true">Share</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+
+        <div class="tab-pane fade in show" *ngIf="!share" [class.active]="!share" id="playlist" aria-expanded="true">
+          <youtube-player *ngIf="playlist.videos.length > 0"
+            [videoId]="playlist.videos[0].videoId"
+            (ready)="savePlayer($event)"
+            (change)="onStateChange($event)">
+          </youtube-player>
+
+          <div dnd-sortable-container
+          [sortableData]="playlist.videos" [dropZones]="['video-dropZone']">
+            <div class="row">
+              <div class="col-md-6 text-left"><button class="btn btn-primary" (click)="deletePlaylist()"> Delete </button></div>
+              <div class="col-md-6 text-right"><button class="btn btn-primary" (click)="updatePlaylist()"> Save </button></div>
+            </div>
+            <div class="list-group"
+            *ngFor="let video of playlist.videos; let i = index"
+            dnd-sortable [sortableIndex]="i" [dragData]="video" [dragEnabled]="true">
+                <a (click)="playVideo(i)" class="list-group-item  list-group-item-action" [class.active]="currentIndex == i">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <p>{{ video.title }}</p>
+                    </div>
+                    <div class="col-md-3">
+                      <button class="btn btn-primary btn-sm" (click)="deleteVideo(video)"
+                      [class.btn-secondary]="currentIndex == i"> Delete </button>
+                    </div>
+                  </div>
+                </a>
+            </div>
+          </div>
+          <footer>
+            <div class="col-md-12">
+              Updated on : <cite title="Source Title">{{playlist.updated | date:'medium'}}</cite>
+            </div>
+            <div class="col-md-12">
+              Created by : <cite title="Source Title">{{ playlist.owner.name }}</cite>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div class="tab-pane fade in show" *ngIf="share" [class.active]="share" id="share" aria-expanded="false">
+        <form (ngSubmit)="searchUsers()" class="form-inline">
+          <div class="form-group col-md-7">
+            <input class="form-control" [(ngModel)]="query" type="text" placeholder="User name" name="search">
+          </div>
+          <div class="form-group col-md-5">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+        </form>
+        <h3 *ngIf="users && users.length > 0">Search Results</h3>
+        <div *ngFor="let user of users">
+          <div *ngIf="!alreadySharedWith(user)">
+            <div class="row">
+              <div class="col-md-8">
+                <p>{{ user.name }}</p>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-primary"(click)="shareWith(user)"> Add </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 *ngIf="playlist.shared.length > 0">Shared With</h3>
+        <div *ngFor="let sharedUser of playlist.shared">
+          <div>
+            <p>{{ sharedUser.name }}</p>
+            <button class="btn btn-primary" (click)="stopSharingWith(sharedUser)"> Remove </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

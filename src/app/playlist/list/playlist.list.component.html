@@ -1,0 +1,13 @@
+<div class="row">
+  <h1 class="col-md-12 margin-top"> My playlists </h1>
+  <div *ngFor="let uPlaylist of userPlaylists | orderByDate" class="col-md-4">
+    <playlist-detail (playlistDeleted)="onPlaylistDeleted(uPlaylist)" [playlist]="uPlaylist"></playlist-detail>
+  </div>
+</div>
+
+<div class="row">
+  <h1 class="col-md-12 margin-top"> Shared with me </h1>
+  <div *ngFor="let sPlaylist of sharedPlaylists | orderByDate" class="col-md-4">
+    <playlist-detail-shared (playlistDeleted)="onPlaylistDeleted(sPlaylist)" [playlist]="sPlaylist"></playlist-detail-shared>
+  </div>
+</div>

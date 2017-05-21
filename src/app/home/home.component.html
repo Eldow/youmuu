@@ -1,0 +1,33 @@
+<div class="row navigation">
+  <a class="col-md-2" href="/home"><img class="logo" src="../../assets/logo.png"></a>
+  <form class="form-inline col-md-5" (ngSubmit)="showPanel=true; search.loadResults()">
+    <h1 class="content-title">Discover</h1>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Search keywords" name="search" [(ngModel)]="query" >
+    </div>
+    <div class="form-group">
+      <button class="btn btn-info" type="submit">Search</button>
+    </div>
+  </form>
+  <form class="form-inline col-md-4" (ngSubmit)="playlist.createPlaylist()">
+      <h1 class="content-title">Create</h1>
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Playlist name" name="playlist" [(ngModel)]="playlist.name">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-info" type="submit">Create</button>
+      </div>
+  </form>
+  <div class="col-md-1 vcenter"><button class="btn btn-outline-warning" *ngIf="auth.authenticated()" (click)="auth.logout()">Logout</button></div>
+</div>
+
+<div class="row">
+  <div [hidden]="!showPanel" class="sidebar-menu col-md-3">
+    <div class="row">
+      <search class="col-md-12" #search></search>
+    </div>
+  </div>
+  <div class="content-right col-md-9" [class.col-md-12]="!showPanel">
+    <playlist-list #playlist></playlist-list>
+  </div>
+</div>

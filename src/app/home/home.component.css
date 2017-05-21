@@ -1,0 +1,53 @@
+.sidebar-menu {
+  background-color: #f7f7f9;
+  left: 0;
+  min-height: 85vh;
+  z-index: 10;
+}
+.search-title {
+  margin-top: 50px;
+  color: #fff;
+}
+
+.close-area {
+  background-color: #f7f7f9;
+  cursor: pointer;
+}
+
+.search-slide-in {
+  position: relative;
+  transition-timing-function: ease;
+  transition: 1s;
+  left: 0;
+}
+.search-slide-out {
+  position: absolute;
+  transition-timing-function: ease;
+  transition: 1s;
+  left: -600px;
+}
+
+.content-title {
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.content-right {
+  background-color : rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  min-height: 85vh;
+}
+
+.logo {
+  width: 100px;
+}
+
+.navigation {
+  background-color: #f7f7f9;
+  padding: 20px;
+}
+
+.vcenter {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,5 @@
+<div class="results" dnd-sortable-container [sortableData]="results" [dropZones]="['add-dropZone']">
+  <div *ngFor="let result of results; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" [dragData]="result">
+        <video-component [id]="result.videoId"></video-component>
+  </div>
+</div>
