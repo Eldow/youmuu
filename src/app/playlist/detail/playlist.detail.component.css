@@ -1,9 +1,12 @@
 .black-container {
   background-color: #1a1a1a;
-  transition: 300ms linear;
+  transition: 100ms linear;
   margin-top: 10px;
 }
 
+.video-background {
+  background-color: #000;
+}
 .black-container:hover {
   background-color: #f7f7f9;
 }
@@ -12,10 +15,30 @@
   color: #1a1a1a;
 }
 
+.video-center {
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .pointer-mouse {
   cursor: pointer;
 }
 
 .collapsing-box {
   padding: 20px 10px 10px 20px;
+}
+
+.share-tab {
+  padding: 25px;
+}
+
+.share-tab h4{
+  margin-top: 20px;
+}
+
+.octicon-large {
+  font-size: 2em;
 }

@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 html, body {
   background: linear-gradient(
-                     rgba(150,150,150, .5),
-                     rgba(150,150,150, .5)),
+                     rgba(175,175,175, .6),
+                     rgba(175,175,175, .6)),
                      url('./assets/relax.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;

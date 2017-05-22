@@ -70,23 +70,23 @@ export class PlaylistDetailComponent {
 
   searchUsers(){
     this.userService.getUsersByName(this.query).subscribe(data => {
+      let sharedIndex = 0;
       this.users = data;
       let profile = JSON.parse(localStorage.getItem('profile'));
-      let index = this.users.findIndex(u => u.userId==profile.user_id);
-      if(index != -1) this.users.splice(index, 1);
+      let myIndex = this.users.findIndex(u => u.userId==profile.user_id);
+      if(myIndex != -1) this.users.splice(myIndex, 1);
+      for(let sharedUser of this.playlist.shared){
+        sharedIndex = this.users.findIndex(u => u.userId==sharedUser.userId);
+        if(sharedIndex != -1) this.users.splice(sharedIndex, 1);
+      }
     });
   }
 
   shareWith(user: User){
     this.playlist.shared.push(user);
+    let index = this.users.indexOf(user);
+    if(index != -1) this.users.splice(index, 1);
     this.updatePlaylist();
-  }
-
-  alreadySharedWith(user: User){
-    if(this.playlist.shared.indexOf(user) == -1){
-      return false;
-    }
-    return true;
   }
 
   stopSharingWith(user: User){

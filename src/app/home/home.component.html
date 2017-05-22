@@ -2,20 +2,24 @@
   <div class="col-md-1"><a href="/home"><img class="logo" src="../../assets/logo.png"></a></div>
   <form class="form-inline col-md-5" (ngSubmit)="showPanel=true; search.loadResults()">
     <h1 class="content-title">Discover</h1>
-    <div class="form-group">
-      <input class="form-control" type="text" placeholder="Search keywords" name="search" [(ngModel)]="query" >
-    </div>
-    <div class="form-group">
-      <button class="btn btn-info" type="submit">Search</button>
+    <div class="row">
+      <div class="col-md-8 form-group">
+        <input class="form-control" type="text" placeholder="Search keywords" name="search" [(ngModel)]="query" >
+      </div>
+      <div class="col-md-4 form-group">
+        <button class="btn btn-info" type="submit">Search</button>
+      </div>
     </div>
   </form>
   <form class="form-inline col-md-5" (ngSubmit)="playlist.createPlaylist()">
       <h1 class="content-title">Create</h1>
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Playlist name" name="playlist" [(ngModel)]="playlist.name">
-      </div>
-      <div class="form-group">
-        <button class="btn btn-info" type="submit">Create</button>
+      <div class="row">
+        <div class="col-md-8 form-group">
+          <input class="form-control" type="text" placeholder="Playlist name" name="playlist" [(ngModel)]="playlist.name">
+        </div>
+        <div class="col-md-4 form-group">
+          <button class="btn btn-info" type="submit">Create</button>
+        </div>
       </div>
   </form>
   <div class="col-md-1 vcenter"><button class="btn btn-outline-warning" *ngIf="auth.authenticated()" (click)="auth.logout()">Logout</button></div>
