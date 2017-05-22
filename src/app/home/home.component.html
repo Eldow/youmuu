@@ -1,5 +1,5 @@
 <div class="row navigation">
-  <a class="col-md-2" href="/home"><img class="logo" src="../../assets/logo.png"></a>
+  <div class="col-md-1"><a href="/home"><img class="logo" src="../../assets/logo.png"></a></div>
   <form class="form-inline col-md-5" (ngSubmit)="showPanel=true; search.loadResults()">
     <h1 class="content-title">Discover</h1>
     <div class="form-group">
@@ -9,7 +9,7 @@
       <button class="btn btn-info" type="submit">Search</button>
     </div>
   </form>
-  <form class="form-inline col-md-4" (ngSubmit)="playlist.createPlaylist()">
+  <form class="form-inline col-md-5" (ngSubmit)="playlist.createPlaylist()">
       <h1 class="content-title">Create</h1>
       <div class="form-group">
         <input class="form-control" type="text" placeholder="Playlist name" name="playlist" [(ngModel)]="playlist.name">
@@ -24,7 +24,8 @@
 <div class="row">
   <div [hidden]="!showPanel" class="sidebar-menu col-md-3">
     <div class="row">
-      <search class="col-md-12" #search></search>
+      <div class="close-search"><a (click)="showPanel=false">Close</a></div>
+      <search class="col-md-12 search-block" #search></search>
     </div>
   </div>
   <div class="content-right col-md-9" [class.col-md-12]="!showPanel">

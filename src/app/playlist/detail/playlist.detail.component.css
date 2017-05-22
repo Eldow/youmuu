@@ -1,6 +1,7 @@
 .black-container {
   background-color: #1a1a1a;
   transition: 300ms linear;
+  margin-top: 10px;
 }
 
 .black-container:hover {

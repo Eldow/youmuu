@@ -1,5 +1,11 @@
 <div class="results" dnd-sortable-container [sortableData]="results" [dropZones]="['add-dropZone']">
-  <div *ngFor="let result of results; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" [dragData]="result">
-        <video-component [id]="result.videoId"></video-component>
+<div class="row">
+  <div class="col-md-12" *ngFor="let result of results; let i = index"
+  dnd-sortable [sortableIndex]="i" [dragEnabled]="true" [dragData]="result">
+        <div class="row">
+        <div class="col-md-10"><video-component [id]="result.videoId"></video-component></div>
+        <div class="col-md-2 vcenter">Drag</div>
+        </div>
   </div>
+</div>
 </div>
