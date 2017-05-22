@@ -5,3 +5,12 @@
 .search-title {
   padding-top:10px;
 }
+
+.border-component {
+  padding: 5px;
+}
+
+
+.border-component:hover {
+  background-color: #000;
+}

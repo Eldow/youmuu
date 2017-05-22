@@ -4,7 +4,7 @@
     <div class="row pointer-mouse collapsing-box" data-toggle="collapse"
     attr.data-target="#{{playlist._id}}" aria-expanded="false" aria-controls="playlist._id">
       <h3 class="col-md-10 text-secondary">{{playlist.name}}</h3>
-      <div class="col-md-2">
+      <div class="col-md-2 text-center">
         <a (click)="deletePlaylist()">
           <i class="octicon octicon-x octicon-large"></i>
         </a>
@@ -41,17 +41,22 @@
             <div class="list-group"
             *ngFor="let video of playlist.videos; let i = index"
             dnd-sortable [sortableIndex]="i" [dragData]="video" [dragEnabled]="true">
-                <a (click)="playVideo(i)" class="list-group-item  list-group-item-action" [class.active]="currentIndex == i">
-                  <div class="row">
-                    <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-12">
+                  <a (click)="playVideo(i)" class="list-group-item  list-group-item-action"
+                  [class.active]="currentIndex == i">
+                      <div class="col-md-9">
                       <p>{{ video.title }}</p>
-                    </div>
-                    <div class="col-md-3">
-                      <button class="btn btn-primary btn-sm" (click)="deleteVideo(video)"
-                      [class.btn-secondary]="currentIndex == i"> Delete </button>
-                    </div>
-                  </div>
-                </a>
+                      </div>
+                      <div class="col-md-3">
+                      <div class="text-center">
+                        <button class="btn btn-primary btn-sm" (click)="deleteVideo(video)"
+                        [class.btn-secondary]="currentIndex == i"> Delete </button>
+                      </div>
+                      </div>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           <footer>
@@ -66,31 +71,29 @@
       </div>
       <div class="tab-pane fade in show" *ngIf="share" [class.active]="share" id="share" aria-expanded="false">
         <div class="share-tab">
-          <div class="row"><div class="col-md-12"><h4>Share</h4></div></div>
+          <div class="row"><div class="col-md-12"><h4 class="text-secondary">Share</h4></div></div>
           <form (ngSubmit)="searchUsers()" class="form-inline">
             <div class="row">
-              <div class="form-group col-md-8">
+              <div class="col-md-7">
                 <input class="form-control" [(ngModel)]="query" type="text" placeholder="User name" name="search">
               </div>
-              <div class="form-group col-md-4">
+              <div class="col-md-5">
                 <button class="btn btn-primary" type="submit">Search</button>
               </div>
-          </div>
+            </div>
           </form>
-          <div class="row"><div class="col-md-12"><h4 *ngIf="users && users.length > 0">Search Results</h4></div></div>
+          <div class="row"><div class="col-md-12"><h4 class="text-secondary" *ngIf="users && users.length > 0">Search Results</h4></div></div>
           <div *ngFor="let user of users">
-            <div>
-              <div class="row">
-                <div class="col-md-7">
-                  <p>{{ user.name }}</p>
-                </div>
-                <div class="col-md-5">
-                  <button class="btn btn-primary"(click)="shareWith(user)"> Add </button>
-                </div>
+            <div class="row">
+              <div class="col-md-7">
+                <p>{{ user.name }}</p>
+              </div>
+              <div class="col-md-5">
+                <button class="btn btn-primary"(click)="shareWith(user)"> Add </button>
               </div>
             </div>
           </div>
-          <div class="row"><div class="col-md-12"><h4 *ngIf="playlist.shared.length > 0">Shared With</h4></div></div>
+          <div class="row"><div class="col-md-12"><h4 class="text-secondary" *ngIf="playlist.shared.length > 0">Shared With</h4></div></div>
           <div *ngFor="let sharedUser of playlist.shared">
             <div class="row">
               <p class="col-md-7">{{ sharedUser.name }}</p>

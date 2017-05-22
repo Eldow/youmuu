@@ -35,10 +35,12 @@ export class PlaylistDetailComponent {
   onStateChange(event){
     // 0 == Video ended
     if(event.data == 0){
-      if (this.currentIndex + 1 < this.playlist.videos.length){
-        this.player.cueVideoById(this.playlist.videos[this.currentIndex + 1].videoId);
-        this.player.playVideo();
+      this.currentIndex++;
+      if(this.currentIndex >= this.playlist.videos.length){
+        this.currentIndex = 0;
       }
+      this.player.cueVideoById(this.playlist.videos[this.currentIndex].videoId);
+      this.player.playVideo();
     }
   }
 

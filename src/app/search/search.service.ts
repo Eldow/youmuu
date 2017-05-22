@@ -5,7 +5,7 @@ import { contentHeaders } from '../auth/auth.headers';
 import { Observable } from 'rxjs/Rx';
 import { Video } from '../video/video.class';
 
-const baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCxx8IrpAKU-bUmPutPZtg2ZQezkvmJBrs&maxResults=3&type=video&q=';
+const baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCxx8IrpAKU-bUmPutPZtg2ZQezkvmJBrs&maxResults=5&type=video&q=';
 
 @Injectable()
 export class SearchService {

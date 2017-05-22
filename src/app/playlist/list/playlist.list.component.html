@@ -1,13 +1,20 @@
-<div class="row">
-  <h1 class="col-md-12 margin-top"> My playlists </h1>
-  <div *ngFor="let uPlaylist of userPlaylists | orderByDate" class="col-lg-3 col-md-4">
+<div class="row section-titles">
+  <div class="col-md-6 section-title-right">
+    <h1 (click)="sharedTab = false"> My playlists </h1>
+  </div>
+  <div class="col-md-6 section-title-left">
+    <h1 (click)="sharedTab = true"> Shared with me </h1>
+  </div>
+</div>
+
+<div [hidden]="sharedTab" class="row">
+  <div *ngFor="let uPlaylist of userPlaylists | orderByDate" class="col-md-4">
     <playlist-detail (playlistDeleted)="onPlaylistDeleted(uPlaylist)" [playlist]="uPlaylist"></playlist-detail>
   </div>
 </div>
 
-<div class="row">
-  <h1 class="col-md-12 margin-top"> Shared with me </h1>
-  <div *ngFor="let sPlaylist of sharedPlaylists | orderByDate" class="col-lg-3 col-md-4">
+<div [hidden]="!sharedTab" class="row">
+  <div *ngFor="let sPlaylist of sharedPlaylists | orderByDate" class="col-md-4">
     <playlist-detail-shared (playlistDeleted)="onPlaylistDeleted(sPlaylist)" [playlist]="sPlaylist"></playlist-detail-shared>
   </div>
 </div>

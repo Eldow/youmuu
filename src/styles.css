@@ -29,11 +29,6 @@ html, body {
   color: #fff;
 }
 
-.btn-primary:hover{
-  background-color: #fff;
-  color: #000;
-}
-
 .vcenter {
   display: flex;
   align-items: center;
