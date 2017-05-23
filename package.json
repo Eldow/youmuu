@@ -5,14 +5,17 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve && node server.js",
+    "start": "node server",
     "build": "ng build && node server.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.0.3",
+    "@angular/compiler-cli": "^4.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
@@ -42,8 +45,6 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.3",
-    "@angular/compiler-cli": "^4.0.0",
     "@types/core-js": "^0.9.41",
     "@types/jasmine": "2.5.38",
     "@types/mongoose": "^4.7.12",

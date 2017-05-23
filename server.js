@@ -20,7 +20,7 @@ const app = express();
 
 // Error handling
 //app.use(morgan('combined'));
-
+app.use(express.static(__dirname + '/dist'));
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,6 +49,11 @@ app.use(function (req, res, next) {
 app.use('/api', api);
 app.use('/api/playlists', playlists);
 app.use('/api/users', users);
+
+// Catch all other routes and return the index file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 /**
  * Get port from environment and store in Express.
