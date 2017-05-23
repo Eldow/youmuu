@@ -11,7 +11,7 @@ router.route('/')
   var playlist = new Playlist(req.body);
   playlist.save(function(err, createdPlaylist) {
     if (err)
-      return res.send(err);
+      res.send(err);
     res.json({ message: 'Playlist created!', playlist: createdPlaylist });
   });
 })
@@ -36,7 +36,7 @@ router.route('/:id')
     playlist.updated = Date.now();
     playlist.save(function(err) {
       if (err)
-        return res.send(err);
+        res.send(err);
       res.json({ message: 'Playlist updated' });
     });
   });

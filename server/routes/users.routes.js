@@ -9,7 +9,7 @@ router.route('/')
   user = new User(req.body);
   user.save(function(err) {
     if (err)
-      return res.send(err);
+      res.send(err);
     res.json({ message: 'User created!' });
   });
 })
