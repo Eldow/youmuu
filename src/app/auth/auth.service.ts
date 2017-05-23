@@ -37,7 +37,7 @@ export class AuthService {
       localStorage.setItem('token', authResult.idToken);
       localStorage.setItem('profile', JSON.stringify(profile));
       localStorage.setItem('accessToken', authResult.accessToken);
-      if(!profile.signed_up){
+      if(profile.signed_up){
         console.log("Enjoy your journey on Youmuu, " + profile.nickname);
         this.userService.createUser({"name": profile.nickname, "userId": profile.user_id}).subscribe(data => {
           this.response = data.message;
