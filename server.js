@@ -6,8 +6,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
+const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost:27017/youmuu';
 // Mongoose configuration
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(mongoDB);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
