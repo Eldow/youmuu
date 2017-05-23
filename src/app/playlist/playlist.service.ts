@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { Playlist } from './playlist.class';
 import { User } from '../user/user.class';
 
-const baseUrl = 'http://localhost:5200/api/playlists';
+const baseUrl = 'https://youmuu.herokuapp.com/api/playlists';
 
 @Injectable()
 export class PlaylistService {
