@@ -10,6 +10,7 @@
   text-align: right;
 }
 .section-title-left h1 {
+  padding: 10px;
   display: inline-block;
   transition: 0.70s;
   -webkit-transition: 0.70s;
@@ -30,6 +31,7 @@
 }
 
 .section-title-right h1 {
+  padding: 10px;
   display: inline-block;
   transition: 0.70s;
   -webkit-transition: 0.70s;
@@ -43,6 +45,13 @@
   -moz-transition: 0.70s;
   -ms-transition: 0.70s;
   -o-transition: 0.70s;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.selected-section h1 {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);

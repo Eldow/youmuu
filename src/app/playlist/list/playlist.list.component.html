@@ -1,8 +1,8 @@
 <div class="row section-titles">
-  <div class="col-md-6 section-title-right">
+  <div class="col-md-6 section-title-right" [class.selected-section]="!sharedTab">
     <h1 (click)="sharedTab = false"> My playlists </h1>
   </div>
-  <div class="col-md-6 section-title-left">
+  <div class="col-md-6 section-title-left" [class.selected-section]="sharedTab" >
     <h1 (click)="sharedTab = true"> Shared with me </h1>
   </div>
 </div>

@@ -7,8 +7,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 // Mongoose configuration
-const mongoDB = 'mongodb://localhost:27017/youmuu';
-mongoose.connect(mongoDB);
+mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
