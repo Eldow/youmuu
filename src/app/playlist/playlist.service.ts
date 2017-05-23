@@ -21,7 +21,6 @@ export class PlaylistService {
   }
 
   private logResponse(response: Response):any{
-    console.log(response);
     return response.json();
   }
 
@@ -64,7 +63,6 @@ export class PlaylistService {
       videos: r.videos,
       updated: r.updated
     })
-    console.log(playlist);
     return playlist;
   }
 

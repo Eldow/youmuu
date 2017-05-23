@@ -18,7 +18,6 @@ export class UserService {
   }
 
   private logResponse(response: Response):any{
-    console.log(response);
     return response.json();
   }
 
