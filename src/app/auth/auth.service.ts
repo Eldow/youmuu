@@ -14,7 +14,7 @@ export class AuthService {
     },
     auth: {
       responseType: 'token',
-      redirectUrl: 'http://localhost:4200/'
+      redirectUrl: 'https://youmuu.herokuapp.com/'
     },
     languageDictionary: {
       title: "Have fun on Youmuu >:3"
