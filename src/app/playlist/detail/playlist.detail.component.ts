@@ -78,6 +78,7 @@ export class PlaylistDetailComponent {
   }
 
   searchUsers(){
+    if (!this.isSearchValid()) return;
     this.userService.getUsersByName(this.query).subscribe(data => {
       let sharedIndex = 0;
       this.users = data;

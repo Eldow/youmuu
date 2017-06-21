@@ -19,6 +19,7 @@ export class PlaylistListComponent {
   constructor(public playlistService: PlaylistService, public auth: AuthService){
   }
   createPlaylist() {
+    if (!this.isNameValid()) return;
     this.playlistService.createPlaylist(<Playlist>{"name": this.name}).subscribe(data => {
       this.response = data.message;
       this.userPlaylists.unshift(data.playlist);

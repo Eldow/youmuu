@@ -13,6 +13,7 @@ export class SearchComponent {
   results = [];
   query: string = '';
   loadResults() {
+    if (!this.isSearchValid()) return;
     this.search.getSearchResults(this.query).subscribe(data => this.results = data);
   }
 
