@@ -78,7 +78,7 @@
                 <input class="form-control" [(ngModel)]="query" type="text" placeholder="User name" name="search">
               </div>
               <div class="col-md-5">
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button [class.disabled]="!isSearchValid()" class="btn btn-primary" type="submit">Search</button>
               </div>
             </div>
           </form>

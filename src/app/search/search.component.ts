@@ -15,4 +15,9 @@ export class SearchComponent {
   loadResults() {
     this.search.getSearchResults(this.query).subscribe(data => this.results = data);
   }
+
+  isSearchValid() {
+    if (this.query.length > 0 && this.query.length < 30) return true;
+    return false;
+  }
 }

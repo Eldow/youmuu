@@ -25,6 +25,11 @@ export class PlaylistListComponent {
     });
   }
 
+  isNameValid() {
+    if (this.name.length > 0 && this.name.length < 30) return true;
+    return false;
+  }
+
   onPlaylistDeleted(p: Playlist){
     let index = this.userPlaylists.indexOf(p);
     if(index === -1) {

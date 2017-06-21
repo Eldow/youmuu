@@ -70,6 +70,13 @@ export class PlaylistDetailComponent {
     this.updatePlaylist();
   }
 
+  isSearchValid(){
+    if (this.query.length > 0 && this.query.length < 30){
+      return true;
+    }
+    return false;
+  }
+
   searchUsers(){
     this.userService.getUsersByName(this.query).subscribe(data => {
       let sharedIndex = 0;

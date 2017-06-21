@@ -47,6 +47,17 @@ export class PlaylistDetailShared {
     this.player.playVideo();
   }
 
+  deleteVideo(video: any){
+    let index = this.playlist.videos.indexOf(video);
+    this.playlist.videos.splice(index, 1);
+    this.updatePlaylist();
+  }
+
+  onVideoDropped($event: any){
+    this.playlist.videos.push($event.dragData);
+    this.updatePlaylist();
+  }
+
   stopSharingWithMe(){
     this.playlistDeleted.emit();
     let profile = JSON.parse(localStorage.getItem('profile'));
