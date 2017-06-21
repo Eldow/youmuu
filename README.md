@@ -11,13 +11,13 @@ Install node modules
 ```
 npm install
 ```
-Launch Youmuu's API
+Build Youmuu's web client
+```
+ng build
+```
+Launch Youmuu's API & Serve files
 ```
 node server
-```
-Launch Youmuu's web client
-```
-ng serve
 ```
 
 # Features
