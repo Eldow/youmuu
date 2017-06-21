@@ -11,7 +11,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 
 export class PlaylistListComponent {
-  name: string;
+  name :string = '';
   userPlaylists = [];
   sharedPlaylists = [];
   response : string;
